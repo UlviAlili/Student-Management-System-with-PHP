@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="85ac71d0-6eca-476c-a474-e5359304f452" name="StudentManagementSystem" url="http://localhost/StudentManagementSystem">
+        <fileTransfer mountedRoot="C:\xampp\htdocs\StudentManagementSystem" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

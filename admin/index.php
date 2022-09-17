@@ -7,7 +7,6 @@ require_once "../partials/header.php";
 <div class="container-sm">
     <!--    <div class="wrapper">-->
     <br>
-    <h1>DASHBOARD</h1>
     <br><br>
 
     <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
@@ -22,12 +21,7 @@ require_once "../partials/header.php";
 
         Lesson
     </div>
-    <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
 
-        Revenue Generated
-        <!--        </div>-->
-        <div class="clearfix" style="float: none; clear: both;"></div>
-    </div>
 </div>
 <br><br><br><br><br><br>
 <!--Main Content Section ends-->

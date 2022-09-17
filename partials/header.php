@@ -7,40 +7,45 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Student Management System - Home Page</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!--    <link rel="stylesheet" href="../css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-<div class="container-fluid">
-<div class="alert alert-primary" style="background-color: #CCFFFF;">
-<!--Menu Section starts-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body class="home">
+
+<header class="header">
+   <nav class="navbar navbar-expand-lg header-nav fixed-top">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#"><b>Student Management System</b></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <a class="navbar-brand" href="#">Student Management System</a>
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Teacher</a>
+          <a class="nav-link" href="#">Admin</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Student</a>
+          <a class="nav-link" href="#">Teacher</a>
         </li>
           <li class="nav-item">
           <a class="nav-link" href="#">Lesson</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="#">Student</a>
         </li>
       </ul>
+        <ul class="navbar-nav ml-auto">
+            <button class="btn">Logout</button>
+        </ul>
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<!--      <form class="d-flex">-->
+<!--        <button class="btn btn-outline-success" type="submit">Logout</button>-->
+<!--      </form>-->
+<!--        &nbsp;&nbsp;&nbsp;&nbsp;-->
     </div>
   </div>
 </nav>
-<!--Menu Section ends-->
-</div>
-</div>
-
+</header>
+<br><br><br><br><br>

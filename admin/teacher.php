@@ -6,17 +6,10 @@ require_once "partials/header.php";
 <div class="container-fluid">
     <div class="col">
         <div class="card-body">
-            <a href="add-teacher.php" class="btn btn-primary">Add Teacher</a>
+            <a href="add-teacher-ajax.php" class="btn btn-primary">Add Teacher</a>
         </div>
     </div>
 </div>
-
-<?php
-if (isset($_SESSION['addTeacher'])){
-    echo $_SESSION['addTeacher'];
-    unset($_SESSION['addTeacher']);
-}
-?>
 
 <div class="container-fluid">
     <div class="row">
@@ -72,13 +65,13 @@ if (isset($_SESSION['addTeacher'])){
                             $getquery = $db->getRows("SELECT * FROM teacher");
                             foreach ($getquery as $item) {
                                 ?>
-                                <tr>
+                                <tr id="<?php echo $item->teacher_id; ?>">
                                     <th scope="row"><?php echo $number++; ?></th>
                                     <td><?php echo $item->teacher_name; ?></td>
                                     <td><?php echo $item->teacher_surname; ?></td>
                                     <td><?php echo $item->teacher_username; ?></td>
                                     <td><?php echo $item->teacher_add_time; ?></td>
-                                    <td><a href="update-teacher.php?id=<?php echo $item->teacher_id; ?>"
+                                    <td><a href="update-teacher-ajax.php?ID=<?php echo $item->teacher_id; ?>"
                                            class="text-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                                  fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -87,8 +80,9 @@ if (isset($_SESSION['addTeacher'])){
                                                       d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                             </svg>
                                         </a></td>
-                                    <td><a href="delete-teacher.php?id=<?php echo $item->teacher_id; ?>"
-                                           class="text-danger">
+                                    <td><a href="javascript:void(0)"
+                                           class="text-danger"
+                                           onclick="RemoveAll('DelTeacher','<?php echo $item->teacher_id; ?>')">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
                                                  fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>

@@ -22,10 +22,12 @@
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
 
-                        <a class="nav-link <?php if ($a == 'index.php') echo 'active'; ?>" aria-current="page" href="index.php">Home</a>
+                        <a class="nav-link <?php if ($a == 'index.php') echo 'active'; ?>" aria-current="page"
+                           href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'teacher.php' or $a == 'add-teacher.php') echo 'active'; ?>"
+                        <a class="nav-link <?php if ($a == 'teacher.php' or $a == 'add-teacher-ajax.php' or $a == 'update-teacher-ajax.php')
+                            echo 'active'; ?>"
                            href="teacher.php">Teacher</a>
                     </li>
                     <li class="nav-item">

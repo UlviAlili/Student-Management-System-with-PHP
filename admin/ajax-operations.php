@@ -128,6 +128,16 @@ switch ($operations) {
         }
         echo $message;
         break;
+    case 'DelStudent' :
+        $ID = $_GET['ID'];
+        $del = $db->delete("DELETE FROM student WHERE student_id=?", array($ID));
+        if ($del) {
+            $message = "Student deleted:::success";
+        } else {
+            $message = "Something get wrong:::danger";
+        }
+        echo $message;
+        break;
 }
 ?>
 

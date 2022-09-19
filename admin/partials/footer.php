@@ -57,7 +57,7 @@
         });
     }
     function RemoveAll(Operation, myId){
-        if (confirm('Are you sure to Delete teacher?')){
+        if (confirm('Are you sure to Delete?')){
           $.get(SITEURL+'/ajax-operations.php?page='+Operation,{"ID":myId},function (data){
               data=data.split(":::");
               let message = data[0];

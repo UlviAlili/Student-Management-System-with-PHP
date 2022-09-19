@@ -118,6 +118,16 @@ switch ($operations) {
         }
         echo $message;
         break;
+    case 'DelLesson' :
+        $ID = $_GET['ID'];
+        $del = $db->delete("DELETE FROM lesson WHERE lesson_id=?", array($ID));
+        if ($del) {
+            $message = "Lesson deleted:::success";
+        } else {
+            $message = "Something get wrong:::danger";
+        }
+        echo $message;
+        break;
 }
 ?>
 

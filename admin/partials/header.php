@@ -31,7 +31,7 @@
                            href="teacher.php">Teacher</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'lesson.php') echo 'active'; ?>" href="#">Lesson</a>
+                        <a class="nav-link <?php if ($a == 'lesson.php') echo 'active'; ?>" href="lesson.php">Lesson</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($a == 'student.php') echo 'active'; ?>" href="#">Student</a>

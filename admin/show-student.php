@@ -9,8 +9,8 @@ $db = new \StudentManagementSystem\db\Database();
  foreach ($getquery1 as $items){
 ?>
 
-<p><h1 class="text-center"><?php echo $items->student_name." ".$items->student_surname; ?></h1></p>
-<p><h3 class="text-center"><?php echo $items->student_username; } ?></h3> </p>
+<p><h1 class="text-primary text-center"><?php echo $items->student_name." ".$items->student_surname; ?></h1></p>
+<p><h4 class="text-primary text-center"><?php echo $items->student_username; } ?></h4> </p>
 
 <div class="container-fluid">
     <div class="col">

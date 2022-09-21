@@ -14,25 +14,33 @@
 <div class="login">
     <h1 class="text-center">Sign Up</h1>
 
-    <form>
+    <form method="post" id="FrmSignup">
         <div class="form-group">
             <label class="form-label" for="name">Name</label>
-            <input class="form-control" type="text" id="name">
+            <input class="form-control" type="text" id="name" name="name">
         </div>
         <div class="form-group">
             <label class="form-label" for="surname">Surname</label>
-            <input class="form-control" type="text" id="surname">
+            <input class="form-control" type="text" id="surname" name="surname">
         </div>
         <div class="form-group">
             <label class="form-label" for="username">Username</label>
-            <input class="form-control" type="text" id="username">
+            <input class="form-control" type="text" id="username" name="username">
         </div>
         <div class="form-group">
             <label class="form-label" for="password">Password</label>
-            <input class="form-control" type="password" id="password">
+            <input class="form-control" type="password" id="password" name="password">
         </div>
-
-        <input class="btn btn-success w-100" type="submit" value="SIGN UP">
+        <div class="form-group row">
+            <div class="col-md-12">
+                <p id="result"></p>
+            </div>
+        </div>
+        <button type="button" name="submit" id="submit"
+                onClick="SendForm('FrmSignup','InsertStudent','signup.php')"
+                class="btn btn-success w-100">SIGN UP
+            <span class="myLoad"></span></button>
+        <!--        <input class="btn btn-success w-100" type="submit" value="SIGN UP">-->
     </form>
     <div class="mt-3 text-center">
         <span>Already have account?</span> <br>
@@ -42,5 +50,52 @@
 </div>
 
 <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-3.6.1.min.js"></script>
+<script>
+    var SITEURL = "http://localhost/StudentManagementSystem";
+
+    function SendForm(FormId, Operation, SendUrl = "") {
+        $(".myLoad").html(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+        $("#submit").prop("disabled", true);
+        var myData = $("form#" + FormId).serialize();
+        $.ajax({
+            type: "post",
+            url: SITEURL + '/ajax-operations.php?page=' + Operation,
+            data: myData,
+            success: function (data) {
+                $(".myLoad").html("");
+                $("#submit").prop("disabled", false);
+                data = data.split(":::");
+                let message = data[0];
+                let mistake = data[1].trim();
+                if (mistake === "warning") {
+                    $("#result").html("<div class='alert alert-warning'>" + message + "</div>");
+                } else if (mistake == "danger") {
+                    $("#result").html('<div class="alert alert-danger">' + message + '</div>');
+                } else if (mistake == "success") {
+                    // $("form").trigger("reset");
+                    $("#result").html('<div class="alert alert-success">' + message + '</div>');
+                    setTimeout(function () {
+                        window.location.href = SITEURL + '/login.php';
+                    }, 1500);
+                }
+            }
+        });
+    }
+
+    function RemoveAll(Operation, myId) {
+        if (confirm('Are you sure to Delete?')) {
+            $.get(SITEURL + '/ajax-operations.php?page=' + Operation, {"ID": myId}, function (data) {
+                data = data.split(":::");
+                let message = data[0];
+                let mistake = data[1].trim();
+                alert(message);
+                if (mistake == 'success') {
+                    $("#" + myId).remove();
+                }
+            });
+        }
+    }
+</script>
 </body>
 </html>

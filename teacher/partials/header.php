@@ -2,22 +2,21 @@
 session_set_cookie_params(null, '/', 'localhost', false, true);
 session_start();
 
-if (!(isset($_SESSION['LoginAdmin']) && $_SESSION['LoginAdmin'] === true)) {
+if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
     \StudentManagementSystem\routing::go("../login.php");
     die();
-}
-    ?>
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Student Management System - Home Page</title>
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
+}    ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Management System - Home Page</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
 <body class="home">
 
 <header class="header">
@@ -30,24 +29,21 @@ if (!(isset($_SESSION['LoginAdmin']) && $_SESSION['LoginAdmin'] === true)) {
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
 
-                        <a class="nav-link <?php if ($a == 'index.php') echo 'active'; ?>" aria-current="page"
+                        <a class="nav-link <?php if ($a == 'index.php' or $a == 'change-password-ajax.php') echo 'active'; ?>"
+                           aria-current="page"
                            href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'teacher.php' or $a == 'add-teacher-ajax.php' or $a == 'update-teacher-ajax.php')
-                            echo 'active'; ?>"
-                           href="teacher.php">Teacher</a>
+                        <a class="nav-link <?php if ($a == 'lesson.php' or $a == 'add-lesson-ajax.php') echo 'active'; ?>"
+                           href="lesson.php">Lesson</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'lesson.php') echo 'active'; ?>" href="lesson.php">Lesson</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'student.php' or $a == 'show-student.php') echo 'active'; ?>"
+                        <a class="nav-link <?php if ($a == 'student.php' or $a == 'add-mark-ajax.php') echo 'active'; ?>"
                            href="student.php">Student</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <a href="../logout.php" class="btn">Logout</a>
+                    <button class="btn">Logout</button>
                 </ul>
                 <!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
                 <!--      <form class="d-flex">-->

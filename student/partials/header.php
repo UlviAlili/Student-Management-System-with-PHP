@@ -2,11 +2,12 @@
 session_set_cookie_params(null, '/', 'localhost', false, true);
 session_start();
 
-if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
+if (!(isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true)) {
     \StudentManagementSystem\routing::go("../login.php");
     die();
-}    ?>
-<!doctype html>
+} ?>
+
+!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,17 +30,15 @@ if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
 
-                        <a class="nav-link <?php if ($a == 'index.php' or $a == 'change-password-ajax.php') echo 'active'; ?>"
-                           aria-current="page"
+                        <a class="nav-link <?php if ($a == 'index.php' or $a == 'change-password-ajax.php') echo 'active'; ?>" aria-current="page"
                            href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'lesson.php' or $a == 'add-lesson-ajax.php') echo 'active'; ?>"
-                           href="lesson.php">Lesson</a>
+                        <a class="nav-link <?php if ($a == 'lesson.php' or $a == 'add-lesson-ajax.php') echo 'active'; ?>" href="lesson.php">Lesson</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'student.php' or $a == 'add-mark-ajax.php') echo 'active'; ?>"
-                           href="student.php">Student</a>
+                        <a class="nav-link <?php if ($a == 'mark.php') echo 'active'; ?>"
+                           href="mark.php">Mark</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -55,3 +54,4 @@ if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
     </nav>
 </header>
 <br><br><br><br><br>
+

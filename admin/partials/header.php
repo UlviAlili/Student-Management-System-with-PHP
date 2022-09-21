@@ -1,15 +1,23 @@
-<?php session_start(); ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student Management System - Home Page</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+<?php
+session_set_cookie_params(null, '/', 'localhost', false, true);
+session_start();
+
+if (!(isset($_SESSION['LoginAdmin']) && $_SESSION['LoginAdmin'] === true)) {
+    \StudentManagementSystem\routing::go("../login.php");
+    die();
+}
+    ?>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Student Management System - Home Page</title>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
 <body class="home">
 
 <header class="header">
@@ -39,7 +47,7 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <button class="btn">Logout</button>
+                    <a href="../logout.php" class="btn">Logout</a>
                 </ul>
                 <!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
                 <!--      <form class="d-flex">-->

@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['LoginAdmin']) && $_SESSION['LoginAdmin'] === true) {
 
 } else {
-    \StudentManagementSystem\routing::go("../login.php");
+    \StudentManagementSystem\routing::go("../index.php");
     die();
 }
 ?>

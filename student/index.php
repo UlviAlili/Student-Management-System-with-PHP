@@ -12,6 +12,8 @@ $db = new \StudentManagementSystem\db\Database();
     </div>
 </div>
 
+<?php $username = $_SESSION['student_username']; ?>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-7 mx-auto">
@@ -21,21 +23,21 @@ $db = new \StudentManagementSystem\db\Database();
                         <label for="staticEmail" class="col-sm-2 col-form-label">Name:</label>
                         <div class="col-sm-10">
                             <input type="text" readonly class="form-control-plaintext text-success fw-bolder" id="staticEmail"
-                                   value="<?php echo $db->getColumn("SELECT student_name FROM student"); ?>">
+                                   value="<?php echo $db->getColumn("SELECT student_name FROM student WHERE student_username = ?",array($username)); ?>">
                         </div>
                     </div>
                     <div class="mb-3 row text-primary fw-bold">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Surname:</label>
                         <div class="col-sm-10">
                             <input type="text" readonly class="form-control-plaintext text-success fw-bolder" id="staticEmail"
-                                   value="<?php echo $db->getColumn("SELECT student_surname FROM student"); ?>">
+                                   value="<?php echo $db->getColumn("SELECT student_surname FROM student WHERE student_username = ?",array($username)); ?>">
                         </div>
                     </div>
                     <div class="mb-3 row text-primary fw-bold">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Username:</label>
                         <div class="col-sm-10">
                             <input type="text" readonly class="form-control-plaintext text-success fw-bolder" id="staticEmail"
-                                   value="<?php echo $db->getColumn("SELECT student_username FROM student"); ?>">
+                                   value="<?php echo $username; ?>">
                         </div>
                     </div>
                 </div>

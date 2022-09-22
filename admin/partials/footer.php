@@ -78,5 +78,5 @@
 
 <?php } else {
     require_once "../../classes/allClass.php";
-    \StudentManagementSystem\routing::go("../../login.php");
+    \StudentManagementSystem\routing::go("../../index.php");
 } ?>

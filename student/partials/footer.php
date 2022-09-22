@@ -28,7 +28,7 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/jquery-3.6.1.min.js"></script>
 <script>
-    var SITEURL = "http://localhost/StudentManagementSystem/teacher";
+    var SITEURL = "http://localhost/StudentManagementSystem/student";
 
     function SendForm(FormId, Operation, SendUrl = "") {
         $(".myLoad").html(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
@@ -52,8 +52,14 @@
                     // $("form").trigger("reset");
                     $("#result").html('<div class="alert alert-success">' + message + '</div>');
                     setTimeout(function (){
-                        window.location.href=SITEURL+'/lesson.php';
-                    },1500);
+                        let path = '';
+                            if (message == "Lesson added" || message == "Lesson deleted") {
+                                path = '/lesson.php';
+                            } else if (message == "Password updated") {
+                                path = '/index.php';
+                            }
+                        window.location.href=SITEURL+path;
+                    },1000);
                 }
             }
         });
@@ -77,5 +83,5 @@
 
 <?php } else {
     require_once "../../classes/allClass.php";
-    \StudentManagementSystem\routing::go("../../login.php");
+    \StudentManagementSystem\routing::go("../../index.php");
 } ?>

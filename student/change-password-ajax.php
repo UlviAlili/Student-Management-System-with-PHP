@@ -18,7 +18,7 @@ $db = new \StudentManagementSystem\db\Database();
         <div class="col-md-7 mx-auto">
             <div class="card mt-3">
                 <div class="card-body m-lg-3">
-                    <form method="post" id="FrmAddLesson">
+                    <form method="post" id="FrmChangePass">
                         <div class="mb-3">
                             <label for="old_password" class="form-label">Old Password</label>
                             <input type="password" name="old_password" id="old_password" class="form-control" maxlength="50">

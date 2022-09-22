@@ -2,6 +2,8 @@
 require_once "../classes/allClass.php";
 require_once "partials/header.php";
 $db = new \StudentManagementSystem\db\Database();
+$username = $_SESSION['student_username'];
+$student_id = $db->getColumn("SELECT student_id FROM student WHERE student_username = ?", array($username));
 ?>
 
 
@@ -19,8 +21,6 @@ $db = new \StudentManagementSystem\db\Database();
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Lesson Name</th>
-                                <th scope="col">Teacher Name</th>
-                                <th scope="col">Teacher Surname</th>
                                 <th scope="col">First Exam</th>
                                 <th scope="col">Second Exam</th>
                                 <th scope="col">Final Exam</th>
@@ -33,20 +33,23 @@ $db = new \StudentManagementSystem\db\Database();
 
                             //// Select Table
                             $number = 1;
-                            $getquery = $db->getRows("SELECT * FROM lesson JOIN teacher ON 
-                                                            lesson.teacher_id = teacher.teacher_id");
+
+                            $getquery = $db->getRows("SELECT * FROM mark JOIN
+                                                            lesson ON mark.lesson_id = lesson.lesson_id WHERE
+                                                            mark.student_id = ?", array($student_id));
                             foreach ($getquery as $item) {
                                 ?>
                                 <tr id="<?php echo $item->lesson_id; ?>">
                                     <th scope="row"><?php echo $number++; ?></th>
                                     <td><?php echo $item->lesson_name; ?></td>
-                                    <td><?php echo $item->teacher_name; ?></td>
-                                    <td><?php echo $item->teacher_surname; ?></td>
-                                    <td>60</td>
-                                    <td>85</td>
-                                    <td>47</td>
-                                    <td>57</td>
-                                    <td class="text-success">Passed</td>
+                                    <td><?php echo $item->first_exam; ?></td>
+                                    <td><?php echo $item->second_exam; ?></td>
+                                    <td><?php echo $item->final_exam; ?></td>
+                                    <td><?php echo $item->mark; ?></td>
+                                    <td class="text-<?php if ($item->status == 'continue') echo 'warning';
+                                    if ($item->status == 'passed') echo 'success';
+                                    if ($item->status == 'failed') echo 'danger'; ?>">
+                                        <?php echo $item->status; ?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>

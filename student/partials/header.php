@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true) {
 
 } else {
-    \StudentManagementSystem\routing::go("../login.php");
+    \StudentManagementSystem\routing::go("../index.php");
     die();
 } ?>
 
@@ -46,13 +46,8 @@ if (isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true) {
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <button class="btn">Logout</button>
+                    <a href="../logout.php" class="btn">Logout</a>
                 </ul>
-                <!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-                <!--      <form class="d-flex">-->
-                <!--        <button class="btn btn-outline-success" type="submit">Logout</button>-->
-                <!--      </form>-->
-                <!--        &nbsp;&nbsp;&nbsp;&nbsp;-->
             </div>
         </div>
     </nav>

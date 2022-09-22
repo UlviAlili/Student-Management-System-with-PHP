@@ -23,10 +23,6 @@
             <label class="form-label" for="password">Password</label>
             <input class="form-control" type="password" id="password" name="password">
         </div>
-        <div class="form-group form-check">
-            <input class="form-check-input" type="checkbox" id="check" name="check">
-            <label class="form-check-label" for="check">Remember me</label>
-        </div>
         <div class="form-group row">
             <div class="col-md-12">
                 <small id="result"></small>

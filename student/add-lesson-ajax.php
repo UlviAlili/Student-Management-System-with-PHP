@@ -2,6 +2,7 @@
 require_once "../classes/allClass.php";
 require_once "partials/header.php";
 require_once "../functions/safe.php";
+$db = new \StudentManagementSystem\db\Database();
 ?>
 
     <div class="container-fluid">
@@ -21,11 +22,17 @@ require_once "../functions/safe.php";
                         <form method="post" id="FrmAddLesson">
                             <div class="mb-3">
                                 <label for="teacher_name" class="form-label">Lesson Name</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">English</option>
-                                    <option value="2">Calculus</option>
-                                    <option value="3">Physics</option>
+                                <select class="form-select" id="lesson" name="lesson">
+                                    <option selected value="0">Open this lesson menu</option>
+                                    <?php
+                                    $lessons = $db->getRows("SELECT * FROM lesson");
+                                    foreach ($lessons as $item){ ?>
+                                        <option value="<?php echo $item->lesson_id; ?>">
+                                            <?php echo $item->lesson_name; ?>
+                                        </option>
+                                    <?php
+                                        }
+                                    ?>
                                 </select>
                             </div>
                             <div class="form-group row">

@@ -2,6 +2,8 @@
 require_once "../classes/allClass.php";
 require_once "partials/header.php";
 $db = new \StudentManagementSystem\db\Database();
+$username = $_SESSION['student_username'];
+$student_id = $db->getColumn("SELECT student_id FROM student WHERE student_username = ?", array($username));
 ?>
 
 <div class="container-fluid">
@@ -37,8 +39,11 @@ $db = new \StudentManagementSystem\db\Database();
 
                             //// Select Table
                             $number = 1;
-                            $getquery = $db->getRows("SELECT * FROM lesson JOIN teacher ON 
-                                                            lesson.teacher_id = teacher.teacher_id");
+
+                            $getquery = $db->getRows("SELECT * FROM mark JOIN lesson ON
+                                                            mark.lesson_id = lesson.lesson_id JOIN 
+                                                            teacher ON lesson.teacher_id = teacher.teacher_id WHERE
+                                                            mark.student_id = ?", array($student_id));
                             foreach ($getquery as $item) {
                                 ?>
                                 <tr id="<?php echo $item->lesson_id; ?>">

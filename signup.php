@@ -44,7 +44,7 @@
     </form>
     <div class="mt-3 text-center">
         <span>Already have account?</span> <br>
-        <a href="login.php" class="btn btn-success w-75">Sign In</a>
+        <a href="index.php" class="btn btn-success w-75">Sign In</a>
     </div>
 
 </div>

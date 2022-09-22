@@ -1,36 +1,45 @@
 <?php
+// Admin Username: admin
+//       Password: Admin123
 require_once "../classes/allClass.php";
-require_once "../partials/header.php";
+require_once "partials/header.php";
+$db = new \StudentManagementSystem\db\Database();
 ?>
+<br><br>
 
-<!--Main Content Section starts-->
-<div class="container-sm">
-    <!--    <div class="wrapper">-->
-    <br>
-    <h1>DASHBOARD</h1>
-    <br><br>
-
-    <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
-
-        Teacher
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="card pt-3 bg-secondary text-white">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a href="teacher.php" style="color: white;">Teachers</a></h4>
+                    <h3 class="card-title text-center"><?php
+                        echo $db->getColumn("SELECT count(teacher_id) FROM teacher"); ?></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card pt-3 bg-secondary text-white">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a href="lesson.php" style="color: white;">Lessons</a></h4>
+                    <h3 class="card-title text-center"><?php
+                        echo $db->getColumn("SELECT count(lesson_id) FROM lesson"); ?></h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card pt-3 bg-secondary text-white">
+                <div class="card-body">
+                    <h4 class="card-title text-center"><a href="student.php" style="color: white;">Students</a></h4>
+                    <h3 class="card-title text-center"><?php
+                        echo $db->getColumn("SELECT count(student_id) FROM student"); ?></h3>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
 
-        Student
-    </div>
-    <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
-
-        Lesson
-    </div>
-    <div class="text-center" style="width: 18%; margin: 1%; padding: 2%; float: left; background-color: #E7E7E7;">
-
-        Revenue Generated
-        <!--        </div>-->
-        <div class="clearfix" style="float: none; clear: both;"></div>
-    </div>
 </div>
-<br><br><br><br><br><br>
-<!--Main Content Section ends-->
+<br><br><br><br>
 
 <?php
 $db = new \StudentManagementSystem\db\Database();
@@ -48,4 +57,4 @@ $addAdmin = $db->insert("INSERT INTO admin SET
 ?>
 
 
-<?php include('../partials/footer.php'); ?>
+<?php include('partials/footer.php'); ?>

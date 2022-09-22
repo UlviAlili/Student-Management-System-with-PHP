@@ -13,7 +13,6 @@ $db = new \StudentManagementSystem\db\Database();
         </div>
     </div>
 
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-7 mx-auto">
@@ -26,12 +25,12 @@ $db = new \StudentManagementSystem\db\Database();
                                     <option selected value="0">Open this lesson menu</option>
                                     <?php
                                     $lessons = $db->getRows("SELECT * FROM lesson");
-                                    foreach ($lessons as $item){ ?>
+                                    foreach ($lessons as $item) { ?>
                                         <option value="<?php echo $item->lesson_id; ?>">
                                             <?php echo $item->lesson_name; ?>
                                         </option>
-                                    <?php
-                                        }
+                                        <?php
+                                    }
                                     ?>
                                 </select>
                             </div>
@@ -51,6 +50,5 @@ $db = new \StudentManagementSystem\db\Database();
         </div>
     </div>
     <br><br>
-
 
 <?php include('partials/footer.php'); ?>

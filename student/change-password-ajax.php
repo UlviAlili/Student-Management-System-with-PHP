@@ -12,7 +12,6 @@ $db = new \StudentManagementSystem\db\Database();
     </div>
 </div>
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-7 mx-auto">
@@ -21,7 +20,8 @@ $db = new \StudentManagementSystem\db\Database();
                     <form method="post" id="FrmChangePass">
                         <div class="mb-3">
                             <label for="old_password" class="form-label">Old Password</label>
-                            <input type="password" name="old_password" id="old_password" class="form-control" maxlength="50">
+                            <input type="password" name="old_password" id="old_password" class="form-control"
+                                   maxlength="50">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">New Password</label>

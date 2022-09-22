@@ -59,7 +59,7 @@ switch ($operations) {
         }
         echo $message;
         break;
-        case 'InsertStudent':
+    case 'InsertStudent':
         $message = null;
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $username = security('username');
@@ -114,5 +114,3 @@ switch ($operations) {
         break;
 }
 ?>
-
-

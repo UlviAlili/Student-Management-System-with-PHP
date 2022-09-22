@@ -1,19 +1,16 @@
 <?php
 require_once "../classes/allClass.php";
 require_once "partials/header.php";
+$db = new \StudentManagementSystem\db\Database();
 ?>
-
 
     <div class="container-fluid">
         <div class="row">
             <div class="col">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <?php
-                        $db = new \StudentManagementSystem\db\Database();
-                        ?>
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                            <table class="table table-hover" id="example">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -27,7 +24,6 @@ require_once "partials/header.php";
                                 </thead>
                                 <tbody>
                                 <?php
-
                                 //// Select Table
                                 $number = 1;
                                 $getquery = $db->getRows("SELECT * FROM student");
@@ -40,12 +36,13 @@ require_once "partials/header.php";
                                         <td><?php echo $item->student_username; ?></td>
                                         <td><?php echo $item->student_add_time; ?></td>
                                         <td><a href="show-student.php?ID=<?php echo $item->student_id; ?>">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
-                                                 fill="currentColor" class="bi bi-caret-down-square"
-                                                 viewBox="0 0 16 16">
-                                                <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/>
-                                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/>
-                                            </svg> </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                                     fill="currentColor" class="bi bi-caret-down-square"
+                                                     viewBox="0 0 16 16">
+                                                    <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/>
+                                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2z"/>
+                                                </svg>
+                                            </a>
                                         </td>
                                         <td><a href="javascript:void(0)"
                                                class="text-danger"
@@ -57,7 +54,9 @@ require_once "partials/header.php";
                                                 </svg>
                                             </a></td>
                                     </tr>
+
                                 <?php } ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -66,7 +65,6 @@ require_once "partials/header.php";
             </div>
         </div>
     </div>
-
 
     <br><br>
 

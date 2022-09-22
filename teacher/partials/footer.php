@@ -27,7 +27,12 @@
 
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/datatables.min.js"></script>
+
     <script>
+        $(document).ready(function () {
+            $("#example").DataTable();
+        })
         var SITEURL = "http://localhost/StudentManagementSystem/teacher";
 
         function SendForm(FormId, Operation, SendUrl = "") {

@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/ico.ico" type="image/x-icon">
     <title>Login</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-login.css">
@@ -32,19 +33,17 @@
                 onClick="SendForm('FrmLogin','Login','login.php')"
                 class="btn btn-success w-100">SIGN IN
             <span class="myLoad"></span></button>
-<!--        <input class="btn btn-success w-100" type="submit" name="submit" value="SIGN IN">-->
     </form>
     <div class="mt-3 text-center">
         <span>Don't have your account?</span> <br>
         <a href="signup.php" class="btn btn-success w-75">Sign Up</a>
     </div>
-
 </div>
 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.6.1.min.js"></script>
 <script>
-      var SITEURL = "http://localhost/StudentManagementSystem";
+    var SITEURL = "http://localhost/StudentManagementSystem";
 
     function SendForm(FormId, Operation, SendUrl = "") {
         $(".myLoad").html(' <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
@@ -67,18 +66,18 @@
                 } else if (mistake == "success") {
                     // $("form").trigger("reset");
                     $("#result").html('<div class="alert alert-success">' + message + '</div>');
-                    if (message == 'Admin Login Successfully'){
-                        setTimeout(function (){
-                        window.location.href=SITEURL+'/admin/index.php';
-                    },1000);
-                    } else if(message == 'Teacher Login Successfully'){
-                        setTimeout(function (){
-                        window.location.href=SITEURL+'/teacher/index.php';
-                    },1000);
-                    } else if (message == 'Student Login Successfully'){
-                        setTimeout(function (){
-                        window.location.href=SITEURL+'/student/index.php';
-                    },1000);
+                    if (message == 'Admin Login Successfully') {
+                        setTimeout(function () {
+                            window.location.href = SITEURL + '/admin/index.php';
+                        }, 1000);
+                    } else if (message == 'Teacher Login Successfully') {
+                        setTimeout(function () {
+                            window.location.href = SITEURL + '/teacher/index.php';
+                        }, 1000);
+                    } else if (message == 'Student Login Successfully') {
+                        setTimeout(function () {
+                            window.location.href = SITEURL + '/student/index.php';
+                        }, 1000);
                     }
                 }
             }

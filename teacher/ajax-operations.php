@@ -98,12 +98,9 @@ switch ($operations) {
             $final_exam = security('final_exam');
             $student_id = security('student_id');
             $lesson_id = security('lesson_id');
-//            $status = security('status');
 
             if ($first_exam > 100 or $second_exam > 100 or $final_exam > 100) {
                 $message = "Mark can't more than 100:::warning";
-//            } elseif ($first_exam < 0 or $second_exam < 0 or $final_exam < 0) {
-//                $message = $first_exam . "Mark can't less than 0:::warning";
             } elseif (!preg_match('/^[0-9\s-]+$/u', $first_exam)) {
                 $message = "Please enter first exam mark correctly:::warning";
             } elseif (!preg_match('/^[0-9\s-]+$/u', $second_exam) && !empty($second_exam)) {
@@ -143,9 +140,5 @@ switch ($operations) {
         }
         echo $message;
         break;
-
-
 }
 ?>
-
-

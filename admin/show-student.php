@@ -5,12 +5,15 @@ require_once "partials/header.php";
 $id = $_GET['ID'];
 $db = new \StudentManagementSystem\db\Database();
 
- $getquery1 = $db->getRows("SELECT * FROM student WHERE student_id = $id");
- foreach ($getquery1 as $items){
+$getquery1 = $db->getRows("SELECT * FROM student WHERE student_id = $id");
+foreach ($getquery1
+
+         as $items){
 ?>
 
-<p><h1 class="text-primary text-center"><?php echo $items->student_name." ".$items->student_surname; ?></h1></p>
-<p><h4 class="text-primary text-center"><?php echo $items->student_username; } ?></h4> </p>
+<p><h1 class="text-primary text-center"><?php echo $items->student_name . " " . $items->student_surname; ?></h1></p>
+<p><h4 class="text-primary text-center"><?php echo $items->student_username;
+    } ?></h4> </p>
 
 <div class="container-fluid">
     <div class="col">
@@ -26,7 +29,7 @@ $db = new \StudentManagementSystem\db\Database();
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-hover" id="example">
                             <thead>
                             <tr>
                                 <th scope="col">#</th>

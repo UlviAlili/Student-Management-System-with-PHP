@@ -2,21 +2,26 @@
 session_set_cookie_params(null, '/', 'localhost', false, true);
 session_start();
 
-if (!(isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true)) {
-    \StudentManagementSystem\routing::go("../login.php");
+if (isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true) {
+
+} else {
+    \StudentManagementSystem\routing::go("../index.php");
     die();
 } ?>
 
-!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student Management System - Home Page</title>
+    <link rel="icon" href="../images/ico.ico" type="image/x-icon">
+    <title>Student Management System - Student Page</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/datatables.min.css">
+
 </head>
 <body class="home">
 
@@ -30,11 +35,13 @@ if (!(isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true)) {
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
 
-                        <a class="nav-link <?php if ($a == 'index.php' or $a == 'change-password-ajax.php') echo 'active'; ?>" aria-current="page"
+                        <a class="nav-link <?php if ($a == 'index.php' or $a == 'change-password-ajax.php') echo 'active'; ?>"
+                           aria-current="page"
                            href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if ($a == 'lesson.php' or $a == 'add-lesson-ajax.php') echo 'active'; ?>" href="lesson.php">Lesson</a>
+                        <a class="nav-link <?php if ($a == 'lesson.php' or $a == 'add-lesson-ajax.php') echo 'active'; ?>"
+                           href="lesson.php">Lesson</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if ($a == 'mark.php') echo 'active'; ?>"
@@ -42,16 +49,10 @@ if (!(isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true)) {
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <button class="btn">Logout</button>
+                    <a href="../logout.php" class="btn">Logout</a>
                 </ul>
-                <!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-                <!--      <form class="d-flex">-->
-                <!--        <button class="btn btn-outline-success" type="submit">Logout</button>-->
-                <!--      </form>-->
-                <!--        &nbsp;&nbsp;&nbsp;&nbsp;-->
             </div>
         </div>
     </nav>
 </header>
 <br><br><br><br><br>
-

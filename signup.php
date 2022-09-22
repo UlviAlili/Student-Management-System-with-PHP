@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
+    <link rel="icon" href="images/ico.ico" type="image/x-icon">
+    <title>Sign Up</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style-login.css">
 </head>
@@ -40,11 +41,10 @@
                 onClick="SendForm('FrmSignup','InsertStudent','signup.php')"
                 class="btn btn-success w-100">SIGN UP
             <span class="myLoad"></span></button>
-        <!--        <input class="btn btn-success w-100" type="submit" value="SIGN UP">-->
     </form>
     <div class="mt-3 text-center">
         <span>Already have account?</span> <br>
-        <a href="login.php" class="btn btn-success w-75">Sign In</a>
+        <a href="index.php" class="btn btn-success w-75">Sign In</a>
     </div>
 
 </div>

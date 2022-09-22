@@ -76,7 +76,7 @@
                     // $("form").trigger("reset");
                     $("#result").html('<div class="alert alert-success">' + message + '</div>');
                     setTimeout(function () {
-                        window.location.href = SITEURL + '/login.php';
+                        window.location.href = SITEURL + '/index.php';
                     }, 1500);
                 }
             }

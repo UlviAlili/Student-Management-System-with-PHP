@@ -32,10 +32,9 @@ $db = new \StudentManagementSystem\db\Database();
                                 $username = $_SESSION['teacher_username'];
                                 $id = $db->getColumn("SELECT teacher_id FROM teacher WHERE teacher_username = ?", array($username));
 
-                                $getquery = $db->getRows("SELECT * FROM lesson JOIN student ON
-                                                                student.teacher_id = lesson.teacher_id JOIN mark ON
-                                                                lesson.lesson_id = mark.lesson_id WHERE
-                                                                lesson.teacher_id = ?", array($id));
+                                $getquery = $db->getRows("SELECT * FROM mark JOIN student ON
+                                                                mark.student_id = student.student_id JOIN lesson ON
+                                                                mark.lesson_id = lesson.lesson_id");
                                 foreach ($getquery as $item) {
                                     ?>
                                     <tr id="<?php echo $item->student_id; ?>">

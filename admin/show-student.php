@@ -36,6 +36,9 @@ foreach ($getquery1
                                 <th scope="col">Lesson Name</th>
                                 <th scope="col">Teacher Name</th>
                                 <th scope="col">Teacher Surname</th>
+                                <th scope="col">First Exam</th>
+                                <th scope="col">Second Exam</th>
+                                <th scope="col">Final Exam</th>
                                 <th scope="col">Mark</th>
                                 <th scope="col">Status</th>
                             </tr>
@@ -56,8 +59,14 @@ foreach ($getquery1
                                     <td><?php echo $item->lesson_name; ?></td>
                                     <td><?php echo $item->teacher_name; ?></td>
                                     <td><?php echo $item->teacher_surname; ?></td>
+                                    <td><?php echo $item->first_exam; ?></td>
+                                    <td><?php echo $item->second_exam; ?></td>
+                                    <td><?php echo $item->final_exam; ?></td>
                                     <td><?php echo $item->mark; ?></td>
-                                    <td><?php echo $item->status; ?></td>
+                                    <td class="text-<?php if ($item->status == 'continue') echo 'warning';
+                                    if ($item->status == 'passed') echo 'success';
+                                    if ($item->status == 'failed') echo 'danger'; ?>">
+                                        <?php echo $item->status; ?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>

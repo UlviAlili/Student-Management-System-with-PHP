@@ -81,7 +81,7 @@
                     },1000);
                     } else if (message == 'Student Login Successfully'){
                         setTimeout(function (){
-                        window.location.href=SITEURL+'student/index.php';
+                        window.location.href=SITEURL+'/student/index.php';
                     },1000);
                     }
                 }

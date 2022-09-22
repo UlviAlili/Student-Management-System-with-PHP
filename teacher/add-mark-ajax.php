@@ -2,6 +2,9 @@
 require_once "../classes/allClass.php";
 require_once "partials/header.php";
 $db = new \StudentManagementSystem\db\Database();
+$id = $_GET['ID'];
+$lesson_name = $_GET['lesson_name'];
+$lesson_id = $db->getColumn('SELECT lesson_id FROM lesson WHERE lesson_name = ?', array($lesson_name));
 ?>
 
 <div class="container-fluid">
@@ -22,35 +25,45 @@ $db = new \StudentManagementSystem\db\Database();
                         <div class="mb-3">
                             <label for="teacher_name" class="form-label">Student Name</label>
                             <p class="text-primary fw-bold">
-                                <?php echo $db->getColumn("SELECT student_name FROM student"); ?>
+                                <?php echo $db->getColumn("SELECT student_name FROM student WHERE student_id = ?", array($id)); ?>
                             </p>
                         </div>
                         <div class="mb-3">
                             <label for="teacher_surname" class="form-label">Student Surname</label>
-                            <p class="text-primary fw-bold">
-                                <?php echo $db->getColumn("SELECT student_surname FROM student"); ?>
+                            <p class="text-primary fw-bold ">
+                                <?php echo $db->getColumn("SELECT student_surname FROM student WHERE student_id = ?", array($id)); ?>
                             </p>
                         </div>
                         <div class="mb-3">
                             <label for="lesson_name" class="form-label">Lesson Name</label>
                             <p class="text-primary fw-bold">
-                                <?php echo $db->getColumn("SELECT lesson_name FROM lesson"); ?>
+                                <?php echo $lesson_name; ?>
                             </p>
                         </div>
+                        <input type="hidden" name="student_id" id="student_id" value="<?php echo $id; ?>">
+                        <input type="hidden" name="lesson_id" id="lesson_id"
+                               value="<?php echo $lesson_id; ?>">
+<!--                        <input type="hidden" name="status" id="status"-->
+<!--                               value="--><?php //echo $db->getColumn('SELECT status FROM mark WHERE
+//                                                 student_id = ? AND lesson_id = ?', array($id, $lesson_id)); ?><!--">-->
                         <div class="mb-3">
                             <label for="first_exam" class="form-label">First Exam Mark</label>
                             <input type="number" name="first_exam" id="first_exam" class="form-control"
-                                   maxlength="3">
+                                   maxlength="3"
+                                   value="<?php echo $db->getColumn('SELECT first_exam FROM mark WHERE
+                                                    student_id=? AND lesson_id =?', array($id, $lesson_id)); ?>">
                         </div>
                         <div class="mb-3">
                             <label for="second_exam" class="form-label">Second Exam Mark</label>
                             <input type="number" name="second_exam" id="second_exam" class="form-control"
-                                   maxlength="3">
+                                   maxlength="3" value="<?php echo $db->getColumn('SELECT second_exam FROM mark WHERE
+                                                    student_id=? AND lesson_id =?', array($id, $lesson_id)); ?>">
                         </div>
                         <div class="mb-3">
                             <label for="final_exam" class="form-label">Final Exam Mark</label>
                             <input type="number" name="final_exam" id="final_exam" class="form-control"
-                                   maxlength="3">
+                                   maxlength="3" value="<?php echo $db->getColumn('SELECT final_exam FROM mark WHERE
+                                                    student_id=? AND lesson_id =?', array($id, $lesson_id)); ?>">
                         </div>
 
                         <div class="form-group row">

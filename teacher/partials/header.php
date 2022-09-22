@@ -2,10 +2,13 @@
 session_set_cookie_params(null, '/', 'localhost', false, true);
 session_start();
 
-if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
+if (isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true) {
+
+} else {
     \StudentManagementSystem\routing::go("../login.php");
     die();
-}    ?>
+} ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -43,7 +46,7 @@ if (!(isset($_SESSION['LoginTeacher']) && $_SESSION['LoginTeacher'] === true)) {
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <button class="btn">Logout</button>
+                    <a href="../logout.php" class="btn">Logout</a>
                 </ul>
                 <!--        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
                 <!--      <form class="d-flex">-->

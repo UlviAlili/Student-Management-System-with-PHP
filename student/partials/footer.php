@@ -1,4 +1,4 @@
-<?php if (isset($_SESSION['LoginAdmin']) && $_SESSION['LoginAdmin'] === true) { ?>
+<?php if (isset($_SESSION['LoginStudent']) && $_SESSION['LoginStudent'] === true) { ?>
 
 <!-- social Section Starts Here -->
 <div class="card-footer text-muted text-center">

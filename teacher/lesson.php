@@ -38,8 +38,10 @@ $db = new \StudentManagementSystem\db\Database();
 
                             //// Select Table
                             $number = 1;
+                            $username = $_SESSION['teacher_username'];
                             $getquery = $db->getRows("SELECT * FROM lesson JOIN teacher ON 
-                                                            lesson.teacher_id = teacher.teacher_id");
+                                                            lesson.teacher_id = teacher.teacher_id WHERE 
+                                                            teacher_username = ?", array($username));
                             foreach ($getquery as $item) {
                                 ?>
                                 <tr id="<?php echo $item->lesson_id; ?>">

@@ -20,7 +20,7 @@ $db = new \StudentManagementSystem\db\Database();
         <div class="col-4">
             <div class="card pt-3 bg-secondary text-white">
                 <div class="card-body">
-                    <h4 class="card-title text-center">Lessons</h4>
+                    <h4 class="card-title text-center"><a href="lesson.php" style="color: white;">Lessons</a></h4>
                     <h3 class="card-title text-center"><?php
                         echo $db->getColumn("SELECT count(lesson_id) FROM lesson"); ?></h3>
                 </div>
@@ -29,7 +29,7 @@ $db = new \StudentManagementSystem\db\Database();
         <div class="col-4">
             <div class="card pt-3 bg-secondary text-white">
                 <div class="card-body">
-                    <h4 class="card-title text-center">Students</h4>
+                    <h4 class="card-title text-center"><a href="student.php" style="color: white;">Students</a></h4>
                     <h3 class="card-title text-center"><?php
                         echo $db->getColumn("SELECT count(student_id) FROM student"); ?></h3>
                 </div>

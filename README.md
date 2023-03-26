@@ -1,6 +1,6 @@
 # Student Management System using PHP
 
-[Click Here to see this project](https://youtu.be/sGLQv_yMbNs)
+[Click Here to see this project's video](https://youtu.be/sGLQv_yMbNs)
 
 # ⚙️ Technology Used
 1. HTML5
